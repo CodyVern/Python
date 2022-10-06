@@ -1,0 +1,26 @@
+//Assume num is checked each iteration
+##########INITIAL##########
+CHECK middle num
+IF current > num 
+    GOTO between current AND min
+IF current < num 
+    GOTO between current AND max
+
+
+##########SECOND###########
+IF current > num AND current > last 
+    GOTO between current AND max
+IF current > num AND current < last
+    GOTO between current AND last
+
+IF current < num AND current < last 
+    GOTO between current AND min
+IF current < num AND current > last
+    GOTO between current AND last
+
+
+num
+min
+max
+last
+current

@@ -7,7 +7,7 @@ def Sorter(Nums):
         x = 0                           #Loop will now stop unless defined otherwise
         for i in range(len(Nums)):
             temp = 0                    #empty var to swap integers
-            if i < lengh:               #if i is > length during below's if, it'll error out
+            if i < lengh:               #if i is > length during below's if statement, it'll error out
                 if Nums[i] > Nums[i+1]: #Number unsorted in list 
                     x = 1               #Loop will now re-iterate through list
                     temp = Nums[i+1]
@@ -15,6 +15,9 @@ def Sorter(Nums):
                     Nums[i] = temp
                     print(Nums[i+1], "Swapped with", Nums[i])
 
+
+
 Sorter(test)
 
 print(test)
+
