@@ -14,48 +14,50 @@ def Round(x):
 def Finder(array, num):
     x = 1
     y = 0
-    z = True
-    max = len(array)-1
+    max = len(array)
     min = 0
     next = 0
     last = 0
     current = Round((max)/2)
     
+    if array[current] > num:
+        next = current+max/2
+    elif array[current] < num:
+        next = current+min/2
+    elif num == array[current]:
+        print("Number ", num, "was found at position: ", current)
+        return True
+    elif current == last:
+        print("Number could not be found")
+        return False
+
+
     while x > 0:
 
         if num == array[current]:
             print("Number ", num, "was found at position: ", current)
             return True
-        if current == last:
+        elif current == last:
             print("Number could not be found")
             return False
 
-        if z == False:
-            if array[current] > num and array[current] > last:
+        elif array[current] < num and array[current] < last:
                 next = current+max/2
-            if array[current] > num and array[current] < last:
+        elif array[current] < num and array[current] > last:
                 next = current+last/2
-            if array[current] < num and array[current] < last:
+        elif array[current] > num and array[current] > last:
                 next = current+min/2
-            if array[current] < num and array[current] > last:
+        elif array[current] > num and array[current] < last:
                 next = current+last/2
-
-        if z == True:
-            if array[current] > num:
-                next = current+max/2
-            if array[current] < num:
-                next = current+min/2
-            z = False
-
 
         next = Round(next)
         last = current
-        current = next
+        current = next-1
         y = y + 1
-        print(y, ") current:", current, "| last:", last, "| next:", next)
+        print(y, ") current:", current, "| last:", last)
         
         
         
 
 
-Finder(list, 15)
+Finder(list, 99)

@@ -8,14 +8,14 @@ IF current < num
 
 
 ##########SECOND###########
-IF current > num AND current > last 
+IF current < num AND current < last 
     GOTO between current AND max
-IF current > num AND current < last
+IF current < num AND current > last
     GOTO between current AND last
 
-IF current < num AND current < last 
+IF current > num AND current > last 
     GOTO between current AND min
-IF current < num AND current > last
+IF current > num AND current < last
     GOTO between current AND last
 
 
