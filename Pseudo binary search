@@ -18,9 +18,16 @@ IF current > num AND current > last
 IF current > num AND current < last
     GOTO between current AND last
 
-
-num
-min
-max
-last
-current
+#############
+NEW SEARCH
+#############
+IF mid = num 
+    PRINT "Found Number"
+ELIF max = min
+    PRINT "Num not found"
+ELIF mid > num
+    SET max = mid
+    GOTO between mid AND min
+ELIF mid < num
+    SET min = mid
+    GOTO between mid and max

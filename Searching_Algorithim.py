@@ -9,56 +9,25 @@ def Round(x):
     return int(y)
 
 def Finder(array, num):
-    x = 1
-    y = 0
-    z = 0
-    max = len(array)-1
+    max = len(array)
     min = 0
-    next = 0
-    last = 0
-    current = Round((max)/2)
-    
-#    if array[current] > num:
-#        next = current+max/2
-#    elif array[current] < num:
-#        next = current+min/2
-#    elif num == array[current]:
-#        print("Number ", num, "was found at position: ", current)
-#        return True
-#    elif current == last:
-#        print("Number could not be found")
-#        return False
-#    next = Round(next)
-#    last = current
-#    current = next-1
+    mid = Round(max/2)
+    x = False
 
-    while x > 0:
-
-        if num == array[current]:
-            print("Number ", num, "was found at position: ", current)
+    while x == False:
+        if array[mid-1] == num:
+            print("Number: ", num, " Found at position: ", mid)
             return True
-        if current-last == 1 or current-last == -1:
-            z = z - 1       
-        if current == last or z == -2:
-            print("Number could not be found")
+        elif array[max-1] == array[mid-1]:
+            print("Number not found")
             return False
-
-
-        if array[current] < num and array[current] < last:
-                next = current+max/2
-        elif array[current] < num and array[current] > last:
-                next = current+last/2
-        elif array[current] > num and array[current] > last:
-                next = current+min/2
-        elif array[current] > num and array[current] < last:
-                next = current+last/2
-
-        next = Round(next)
-        last = current
-        current = next-1
-        y = y + 1
-        print(y, ") current:", current, "| last:", last)
-        
+        elif array[mid-1] > num:
+            max = mid
+            mid = Round((mid+min)/2)
+        elif array[mid-1] < num:
+            min = mid
+            mid = Round((mid+max)/2)
+        print("mid: ", mid, "| max: ", max, " | min: ", min)
         
         
 Finder(list, 88)
